@@ -74,7 +74,7 @@ export const PrefecturePopulation = () => {
       setChartData(newChartData);
     }
   };
-  const handleCheck = async (prefecture: Prefecture) => {
+  const handleCheck = (prefecture: Prefecture) => {
     const newSelectedPrefecture = [...selectedPrefecture, prefecture];
     addPopulationDatum(prefecture);
     setSelectedPrefecture(newSelectedPrefecture);
