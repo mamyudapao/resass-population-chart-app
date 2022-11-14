@@ -13,6 +13,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import Styles from './PrefecturePopulationView.module.scss';
+import { useMediaQuery } from 'react-responsive';
 
 ChartJS.register(
   CategoryScale,
@@ -44,6 +45,7 @@ type Props = {
 
 export const PrefecturePopulationView = (props: Props) => {
   const { prefectures, handleCheck, handleUncheck, data } = props;
+  const isMobile = useMediaQuery({ query: '(max-width: 1000px)' });
 
   const options = useMemo(() => {
     return {
@@ -52,7 +54,7 @@ export const PrefecturePopulationView = (props: Props) => {
           position: 'right' as const,
         },
       },
-      responsive: false,
+      responsive: isMobile ? true : false,
       scale: {
         x: {
           display: true,
@@ -68,15 +70,15 @@ export const PrefecturePopulationView = (props: Props) => {
           <h1>都道府県別人口推移</h1>
           <CheckboxList
             items={prefectures}
-            rowNumber={16}
+            rowNumber={isMobile ? 5 : 12}
             handleChecked={handleCheck}
             handleUnchecked={handleUncheck}
           />
           <Line
             options={options}
             data={data as any}
-            height="600"
-            width="1200"
+            height="500"
+            width="1000"
           ></Line>
         </div>
       )}
