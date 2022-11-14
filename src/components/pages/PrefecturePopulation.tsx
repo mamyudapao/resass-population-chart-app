@@ -14,7 +14,25 @@ export const PrefecturePopulation = () => {
   );
 
   const [chartData, setChartData] = useState<ChartData>({
-    labels: [],
+    labels: [
+      '1965',
+      '1970',
+      '1975',
+      '1980',
+      '1985',
+      '1990',
+      '1995',
+      '2000',
+      '2005',
+      '2010',
+      '2015',
+      '2020',
+      '2025',
+      '2030',
+      '2035',
+      '2040',
+      '2045',
+    ],
     datasets: [],
   });
 
@@ -34,20 +52,14 @@ export const PrefecturePopulation = () => {
         borderColor: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
       };
       chartData.labels.length;
-      if (chartData.labels.length === 0) {
-        setChartData({
-          labels: populationData.result.data[0].data.map((data) => data.year),
-          datasets: [chartDatum],
-        });
-      } else {
-        const newChartData = [...chartData.datasets, chartDatum];
-        setChartData(() => {
-          return {
-            labels: chartData.labels,
-            datasets: newChartData,
-          };
-        });
-      }
+
+      const newChartData = [...chartData.datasets, chartDatum];
+      setChartData(() => {
+        return {
+          labels: chartData.labels,
+          datasets: newChartData,
+        };
+      });
     }
   };
 

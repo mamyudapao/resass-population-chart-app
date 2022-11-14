@@ -55,9 +55,20 @@ export const PrefecturePopulationView = (props: Props) => {
         },
       },
       responsive: isMobile ? true : false,
-      scale: {
+      scales: {
         x: {
           display: true,
+          title: {
+            display: true,
+            text: '年度',
+          },
+        },
+        y: {
+          display: true,
+          title: {
+            display: true,
+            text: '人口数',
+          },
         },
       },
     };
@@ -76,6 +87,7 @@ export const PrefecturePopulationView = (props: Props) => {
           />
           <Line
             options={options}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             data={data as any}
             height="500"
             width="1000"
