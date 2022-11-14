@@ -12,7 +12,7 @@ describe('splitArray', () => {
     });
   });
 
-  describe('error case', () => {
+  describe('edge case', () => {
     it('should return empty array if array is empty', () => {
       expect(splitArray([], 3)).toEqual([]);
     });
