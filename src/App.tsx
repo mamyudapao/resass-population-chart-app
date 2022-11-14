@@ -1,10 +1,11 @@
 import React from 'react';
 import Styles from './App.module.scss';
+import { PrefecturePopulation } from './components/pages/PrefecturePopulation';
 
 function App() {
   return (
     <div className="App">
-      <h1 className={Styles.header}>Hello World!</h1>
+      <PrefecturePopulation />
     </div>
   );
 }
