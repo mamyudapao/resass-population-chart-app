@@ -12,6 +12,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import Styles from './PrefecturePopulationView.module.scss';
 
 ChartJS.register(
   CategoryScale,
@@ -63,13 +64,7 @@ export const PrefecturePopulationView = (props: Props) => {
   return (
     <>
       {prefectures && (
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
+        <div className={Styles.container}>
           <h1>都道府県別人口推移</h1>
           <CheckboxList
             items={prefectures}
