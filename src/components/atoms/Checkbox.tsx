@@ -19,8 +19,7 @@ export const Checkbox = (props: Props) => {
       <input
         type="checkbox"
         className={Styles.checkbox}
-        value={value}
-        onClick={(e) => {
+        onChange={(e) => {
           const target = e.target as HTMLInputElement;
           if (target.checked) {
             handleChecked(value);
