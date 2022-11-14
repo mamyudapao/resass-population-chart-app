@@ -13,20 +13,20 @@ type Props = {
 };
 
 export const CheckboxList = (props: Props) => {
-  const { items, rowNumber: rowItems, handleChecked, handleUnchecked } = props;
+  const { items, rowNumber, handleChecked, handleUnchecked } = props;
 
-  const rows = splitArray(items, rowItems);
+  const rows = splitArray(items, rowNumber);
 
   return (
     <div>
-      {rows.map((prefectures, index) => {
+      {rows.map((row, index) => {
         return (
           <div key={index}>
-            {prefectures.map((prefecture, index) => {
+            {row.map((item, index) => {
               return (
                 <Checkbox
-                  label={prefecture.prefName}
-                  value={prefecture}
+                  label={item.prefName}
+                  value={item}
                   handleChecked={handleChecked}
                   handleUnchecked={handleUnchecked}
                   key={index}
